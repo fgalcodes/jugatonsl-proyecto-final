@@ -6,6 +6,22 @@
   text-decoration: none;
 }
 
+.mainHeader .darkmode input{
+  width: 25px;
+  height: 25px;
+  align-self: center;
+  background-image: url("../src/sun.png");
+  background-size: cover;
+}
+
+.darkmode{
+  width: max-content;
+}
+
+.mainHeader{
+  padding-right: 10px;
+}
+
 ::-webkit-scrollbar{
   background-color: #7F245D;
   border-radius: 5px;
@@ -18,8 +34,11 @@
 }
 
 body {
+  display: grid;
   background-color: #190523;
   min-height: 100vh;
+  margin: 0;
+  grid-template-rows: auto 1fr auto;
 }
 
 a,
@@ -45,6 +64,7 @@ h3 {
   justify-content: space-between;
   background-image: linear-gradient(to bottom, #2a1037, #3a0741);
   margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
 .mainHeader .linksNav {
@@ -53,6 +73,7 @@ h3 {
   justify-content: left;
   width: fit-content;
   margin-left: 10px;
+  flex-wrap: wrap;
 }
 
 .mainHeader a {
@@ -125,7 +146,9 @@ h1 {
 }
 
 .doubleArticle article{
+  display: flex;
   flex-direction: column;
+  height: 610px !important;
 }
 
 .doubleArticle article > div{
@@ -136,6 +159,10 @@ h1 {
 
 .doubleArticle article > div:last-child{
   flex-direction: row-reverse;
+}
+
+.doubleArticle img{
+  height: 290px;
 }
 
 .levels{
