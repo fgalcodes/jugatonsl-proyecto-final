@@ -9,6 +9,14 @@
 	box-shadow: 5px 20px 50px #ffffff33;
 }
 
+button, label{
+	font-family: 'Nunito', sans-serif;
+}
+
+.loginlabel{
+	padding-top: 15px;
+}
+
 #chk{
 	display: none;
 }
@@ -53,7 +61,7 @@ input{
 	color: #fff;
 	background: #573b8a;
 	font-size: 1em;
-	font-weight: bold;
+	font-weight: bolder;
 	margin-top: 20px;
 	outline: none;
 	border: none;
