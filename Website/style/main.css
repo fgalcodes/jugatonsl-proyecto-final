@@ -119,7 +119,7 @@ h3 {
 }
 
 .mainFooter {
-  margin-top: 53px;
+  margin-top: 30px;
   display: flex;
   justify-content: space-between;
   background-image: linear-gradient(to bottom, #3a0741, #2a1037);
