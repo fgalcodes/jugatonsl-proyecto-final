@@ -14,6 +14,14 @@
   background-size: cover;
 }
 
+h1{
+  margin-left: 50px;
+  font-size: 50px;
+  color: #7F245D;
+  filter: brightness(150%);
+  text-shadow: rgba(255, 255, 255, 0.329) 0 0 40px;
+}
+
 .darkmode{
   width: max-content;
 }
@@ -48,7 +56,7 @@ li {
 }
 
 main {
-  margin: 10px;
+  margin: 0 10px 0 10px;
 }
 
 h1,
@@ -76,15 +84,23 @@ h3 {
   flex-wrap: wrap;
 }
 
-.mainHeader a {
+.mainHeader a:not(.nolink) {
   padding: 15px;
   margin: 5px;
   border-radius: 10px;
   transition: 300ms;
+  font-weight: bolder;
 }
 
-.mainHeader a:hover {
+.lastlink:hover{
   background-color: #190523;
+  filter: brightness(120%);
+}
+
+.mainHeader a:not(.nolink, .lastlink):hover {
+  background-color: #190523;
+  filter: brightness(120%);
+  padding-right: 80px;
 }
 
 .navRight {
@@ -92,22 +108,48 @@ h3 {
 }
 
 .logoHeader {
+  transition: 300ms;
   width: 150px;
   margin-right: 20px;
+  padding-top: 5px;
+}
+
+.logoHeader:hover{
+  transform: scale(105%);
 }
 
 .mainFooter {
   margin-top: 53px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   background-image: linear-gradient(to bottom, #3a0741, #2a1037);
   align-items: center;
+  padding: 0 10% 0 10%;
 }
 
 .col-center {
   width: 60%;
   margin: auto;
   height: fit-content;
+}
+
+.mainFooter a{
+  color: #D89BC2;
+}
+
+.mainFooter a:hover{
+  color: aqua;
+}
+
+.mainFooter img{
+  width: 20px;
+  height: 20px;
+  margin: 0 5px 0 5px;
+  filter: contrast(0);
+}
+
+.mainFooter img:hover{
+  transform: scale(110%);
 }
 
 .col-center article {
@@ -168,18 +210,16 @@ h1 {
 .levels{
   display: flex;
   overflow-x: scroll;
-  height: 700px;
+  height: 600px;
 }
 
 .levels > div{
-  display: flex;
+  display: flex !important;
   flex-wrap: nowrap;
 }
 
 .levels article{
   flex: 0 0 auto;
-  width: 200px;
-  height: 92% !important;
   margin-right: 20px;
   text-align: center;
   font-size: 24px;
