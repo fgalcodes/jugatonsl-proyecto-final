@@ -38,6 +38,7 @@ input{
 	border: none;
 	outline: none;
 	border-radius: 5px;
+	color: #000;
 }
 button{
 	width: 60%;
