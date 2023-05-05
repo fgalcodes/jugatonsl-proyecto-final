@@ -19,6 +19,7 @@
 
 body {
   background-color: #190523;
+  min-height: 100vh;
 }
 
 a,
@@ -175,3 +176,11 @@ h1 {
     flex-direction: column !important;
   }
 }
+
+/* @media only screen and (max-height: 100vh){
+  .mainFooter{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+} */
