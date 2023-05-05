@@ -40,7 +40,7 @@ namespace MinimalAPI.Repositories
 
             return await db.QueryFirstOrDefaultAsync<Usuario>(sql, new { Id = id });
         }
-        public async Task<bool> InsertUsuario(Usuario usuario)
+        public async Task<bool> InsertUsuario(UsuarioSinId usuario)
         {
             var db = dbConnection();
 

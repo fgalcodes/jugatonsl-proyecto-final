@@ -27,7 +27,7 @@ namespace MinimalAPI.Controllers
             return Ok(await usuariosRepository.GetUsuario(id));
         }
         [HttpPost]
-        public async Task<IActionResult> CreateUsuario([FromBody] Usuario usuario)
+        public async Task<IActionResult> CreateUsuario([FromBody] UsuarioSinId usuario)
         {
             if (usuario == null)
             {
