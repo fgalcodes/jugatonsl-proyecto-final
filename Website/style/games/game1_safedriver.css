@@ -15,31 +15,3 @@
     background-position: 100% 0;
   }
 }
-
-.playbutton {
-  width: 302.47px;
-  height: 50px;
-  font-size: larger;
-  color: rgba(255, 255, 255, 0.726);
-  background-color: rgba(211, 144, 211, 0.418);
-  margin-top: 20px;
-}
-
-.playbutton:hover {
-  background-color: rgba(211, 144, 211, 0.575);
-}
-
-.col-center{
-  position: relative;
-}
-
-#gameover {
-  position: absolute;
-  top: 30%;
-  left: 30%;
-  width: 400px;
-  height: 220px;
-  background-color: black;
-  text-align: center;
-  border-radius: 10px;
-}

@@ -2,8 +2,8 @@
 class Enemigo {
     // fotos = [truck, car2];
     // foto = this.fotos[Math.round(Math.random())];
-    colores = ['red', 'blue', 'black', 'yellow']
-    color = this.colores[Math.round(Math.random(4))];
+    colores = ['red', 'blue', 'black']
+    color = this.colores[Math.round(Math.random() * 3)];
   
     constructor(x, y, ancho, alto, velocidad) {
       this.x = x;
@@ -26,7 +26,7 @@ class Enemigo {
       if (this.x < 0) {
         this.x = htmlCanvas.width;
         this.y = Math.random() * (htmlCanvas.height - this.alto);
-        this.color = this.colores[Math.round(Math.random())];
+        this.color = this.colores[Math.round(Math.random() * 3)];
         score++;
   
         // this.aplicarFiltro(Math.floor(Math.random() * 50))

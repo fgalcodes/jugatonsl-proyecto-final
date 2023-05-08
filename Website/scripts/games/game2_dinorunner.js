@@ -1,79 +1,6 @@
-// function Dino() {
-//   this.x = 50;
-//   this.y = 0;
-//   this.width = 50;
-//   this.height = 50;
-//   this.jump = function () {
-//     // Add code to make the dino jump
-//   };
-//   this.move = function () {
-//     // Add code to move the dino forward
-//   };
-// }
-
-// function Enemigo() {
-//   this.x = 500;
-//   this.y = 0;
-//   this.width = 50;
-//   this.height = 50;
-//   this.move = function () {
-//     // Add code to move the enemigo backward
-//   };
-// }
-
-// var enemigos = [];
-
-// function addEnemigo() {
-//   // Add code to randomize the position of the enemigo
-//   var enemigo = new Enemigo();
-//   enemigos.push(enemigo);
-// }
-
-// function moveEnemigos() {
-//   for (var i = 0; i < enemigos.length; i++) {
-//     enemigos[i].move();
-//   }
-// }
-
-// function gameLoop() {
-//   // Add code to move the dino forward and check for collisions
-//   if (Math.random() < 0.01) {
-//     addEnemigo();
-//   }
-//   moveEnemigos();
-//   requestAnimationFrame(gameLoop);
-// }
-
-// gameLoop();
-
-// function checkCollisions() {
-//   for (var i = 0; i < enemigos.length; i++) {
-//     var enemigo = enemigos[i];
-//     if (
-//       dino.x < enemigo.x + enemigo.width &&
-//       dino.x + dino.width > enemigo.x &&
-//       dino.y < enemigo.y + enemigo.height &&
-//       dino.y + dino.height > enemigo.y
-//     ) {
-//       // End the game
-//     }
-//   }
-// }
-
-// function gameLoop() {
-//   dino.move();
-//   checkCollisions();
-//   // ...
-// }
-
-// document.addEventListener('keydown', function(event) {
-//     if (event.keyCode === 32) {
-//       dino.jump();
-//     }
-//   });
-
 const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");
+let gameover = false;
 
 let isJumping = false;
 let jumpTimer = 0;
@@ -119,10 +46,10 @@ function moveEnemy() {
 }
 
 function checkCollision() {
-  const dinoRight = dinoX + 50;
-  const dinoBottom = dinoY + 50;
-  const enemyRight = enemyX + 50;
-  const enemyBottom = enemyY + 50;
+  const dinoRight = dinoX + 10;
+  const dinoBottom = dinoY + 20;
+  const enemyRight = enemyX + 10;
+  const enemyBottom = enemyY + 20;
 
   if (
     dinoRight > enemyX &&
@@ -150,8 +77,14 @@ function update() {
   }
 }
 
-function gameOver(){
-    console.log("GAME OVER");
+function gameOver() {
+  gameover = true;
+  canvas.style.animation = "none";
+  let gameoverDiv = document.getElementById("gameover");
+  let scoreSpan = document.getElementById("score");
+  scoreSpan.textContent = score;
+  gameoverDiv.style.display = "block";
+  document.getElementById("game").style.filter = "invert(10%)";
 }
 
 // Set up key listeners for jumping
@@ -161,8 +94,34 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+function reiniciarJuego() {
+  score = 0;
+  isJumping = false;
+  jumpTimer = 0;
+  jumpHeight = 30;
+  dinoX = 10;
+  dinoY = canvas.height - 46;
+  enemyX = canvas.width - 50;
+  enemyY = canvas.height - 46;
+  gameover = false;
+  document.getElementById("gameover").style.display = "none";
+  canvas.style.animation = "moveRoad 3s linear infinite";
+  document.getElementById("game").style.filter = "invert(0)";
+  bucleJuego();
+}
+
 // Start the game loop
-setInterval(() => {
-  draw();
-  update();
-}, 1000 / 60);
+function bucleJuego() {
+  setInterval(() => {
+    if (!gameover) {
+      draw();
+      update();
+    }
+  }, 1000 / 60);
+}
+
+function jugar() {
+  document.getElementById("play").style.display = "none";
+  canvas.style.animation = "moveRoad 3s linear infinite";
+  bucleJuego();
+}
