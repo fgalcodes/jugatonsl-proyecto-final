@@ -1,0 +1,29 @@
+#game {
+    border: 1px solid black;
+    background-image: url("../../src/road.png");
+    background-repeat: repeat-x;
+    background-size: cover;
+    animation: none;
+    cursor: none;
+  }
+  
+  @keyframes moveRoad {
+    from {
+      background-position: -100% 0;
+    }
+    to {
+      background-position: 100% 0;
+    }
+  }
+  
+  .playbutton{
+    width: 302.47px;
+    height: 50px;
+    font-size: larger;
+    color: rgba(255, 255, 255, 0.726);
+    background-color: rgba(211, 144, 211, 0.418);
+  }
+
+  .playbutton:hover{
+    background-color: rgba(211, 144, 211, 0.575);
+  }
