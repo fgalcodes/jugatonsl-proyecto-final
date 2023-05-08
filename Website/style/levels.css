@@ -7,8 +7,9 @@
   }
   
   .levels > div{
-    display: flex !important;
+    display: flex;
     flex-wrap: nowrap;
+    width: 100%;
   }
   
   .levels article{
@@ -17,4 +18,5 @@
     text-align: center;
     font-size: 24px;
     line-height: 250px;
+    width: 15%;
   }
