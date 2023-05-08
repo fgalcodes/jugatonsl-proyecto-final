@@ -3,7 +3,7 @@ class Enemigo {
     // fotos = [truck, car2];
     // foto = this.fotos[Math.round(Math.random())];
     colores = ['red', 'blue', 'black', 'yellow']
-    color = this.colores[Math.round(Math.random())];
+    color = this.colores[Math.round(Math.random(4))];
   
     constructor(x, y, ancho, alto, velocidad) {
       this.x = x;
@@ -99,6 +99,7 @@ class Enemigo {
     let scoreSpan = document.getElementById("score");
     scoreSpan.textContent = score;
     gameoverDiv.style.display = "block";
+    document.getElementById("game").style.filter = "brightness(50%)";
   }
   
   // Función para el botón de reiniciar el juego
@@ -106,9 +107,10 @@ class Enemigo {
     gameover = false;
     score = 0;
     coches = [];
-    player.x = htmlCanvas.width / 2;
+    player.x = 10;
     document.getElementById("gameover").style.display = "none";
     htmlCanvas.style.animation = "moveRoad 1s linear infinite";
+    document.getElementById("game").style.filter = "brightness(100%)";
     crearCoches();
     loopJuego();
   }

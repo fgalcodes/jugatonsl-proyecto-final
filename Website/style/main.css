@@ -21,12 +21,13 @@
 
 
 /* TAGS GENERALES */
-h1{
-  margin-left: 50px;
+h1, h2, h4, h5{
+  margin: 0 50px 50px 50px;
   font-size: 50px;
   color: #7F245D;
   filter: brightness(150%);
   text-shadow: rgba(255, 255, 255, 0.329) 0 0 40px;
+  font-family: 'Play', sans-serif;
 }
 
 body {
@@ -35,14 +36,6 @@ body {
   min-height: 100vh;
   margin: 0;
   grid-template-rows: auto 1fr auto;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: 'Play', sans-serif;
 }
 
 .mainHeader{
