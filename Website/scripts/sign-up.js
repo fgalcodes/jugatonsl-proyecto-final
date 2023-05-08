@@ -44,6 +44,7 @@ signupBtn.addEventListener("click", (e) => {
     id_usuario: tempId + 1,
     nombrePerfil: document.getElementById("profile-name").value,
     ubicacion: document.getElementById("profile-location").value,
+    nivel: 1
   };
 
   // Consumir API
