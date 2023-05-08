@@ -33,7 +33,7 @@ namespace MinimalAPI.Controllers
 
         // Método PUT para actualizar un perfil concreto de la tabla.
         [HttpPut]
-        public async Task<IActionResult> UpdatePerfil([FromForm] Perfil perfil)
+        public async Task<IActionResult> UpdatePerfil([FromBody] Perfil perfil)
         {
             if (perfil == null)
             {
