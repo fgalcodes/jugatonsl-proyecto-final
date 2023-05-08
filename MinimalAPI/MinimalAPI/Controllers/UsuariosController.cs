@@ -34,7 +34,7 @@ namespace MinimalAPI.Controllers
 
         // Método POST para crear un usuario e insertarlo en la tabla.
         [HttpPost]
-        public async Task<IActionResult> CreateUsuarioWeb([FromForm] UsuarioSinId usuario)
+        public async Task<IActionResult> CreateUsuarioWeb([FromBody] UsuarioSinId usuario)
         {
             if (usuario == null)
             {
