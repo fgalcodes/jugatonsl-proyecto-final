@@ -1,37 +1,41 @@
 let nivel = localStorage.getItem("nivel");
 
-if (nivel == 1) {
-  console.log("Campeón has entrado al nivel 1");
-  alert("Campeón has entrado al nivel 1");
-} else {
-  console.log("Campeón no tienes el nivel para jugar");
-  alert("Campeón no tienes el nivel para jugar");
+let gameid = document.getElementById("game-id").textContent
 
-  history.back();
+
+switch(gameid)
+{
+  case "1":
+    if (nivel == 1) {
+      console.log("Campeón has entrado al nivel 1");
+      alert("Campeón has entrado al nivel 1");
+    } else {
+      console.log("Campeón no tienes el nivel para jugar");
+      alert("Campeón no tienes el nivel para jugar");
+    
+      history.back();
+    }
+    break;
+  case "2":
+    if (nivel == 2) {
+      console.log("Campeón has entrado al nivel 2");
+      alert("Campeón has entrado al nivel 2");
+    } else {
+      console.log("Campeón no tienes el nivel para jugar");
+      alert("Campeón no tienes el nivel para jugar");
+    
+      history.back();
+    }
+    break;
+  case "3":
+    if (nivel == 3) {
+      console.log("Campeón has entrado al nivel 3");
+      alert("Campeón has entrado al nivel 3");
+    } else {
+      console.log("Campeón no tienes el nivel para jugar");
+      alert("Campeón no tienes el nivel para jugar");
+    
+      history.back();
+    }
+    break;
 }
-
-// fetch(usuario21)
-//   .then((response) => {
-//     //handle response
-//     console.log(response);
-//     if (response.ok) {
-//       return response.json();
-//     }
-//   })
-//   .then((data) => {
-//     //handle data
-//     console.log(data);
-//     if (data.nivel === 1) {
-//       console.log("Campeón has entrado al nivel 1");
-//       alert("Campeón has entrado al nivel 1");
-//     } else {
-//       console.log("Campeón no tienes el nivel para jugar");
-//       alert("Campeón no tienes el nivel para jugar");
-
-//       history.back();
-//     }
-//   })
-//   .catch((error) => {
-//     //handle error
-//     console.log(error);
-//   });

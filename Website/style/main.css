@@ -60,6 +60,12 @@ h3 {
   font-family: "Play", sans-serif;
 }
 
+/* IDENTIFICADOR NIVEL */
+
+#game-id{
+  display: none;
+}
+
 
 /* HEADER */
 .mainHeader {
