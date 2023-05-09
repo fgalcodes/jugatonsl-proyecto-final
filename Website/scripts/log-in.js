@@ -51,6 +51,7 @@ function RecogerIdUsuario(usuariosLogin){
             console.log("Hola campeon");
             succesful = true;
             usuarioId = usuario.id;
+            break;
         }
     }
 
