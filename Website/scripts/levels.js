@@ -14,6 +14,11 @@ fetch(usuario21)
     if (data.nivel === 1) {
       console.log("Campeón has entrado al nivel 1");
       alert("Campeón has entrado al nivel 1");
+    } else {
+      console.log("Campeón no tienes el nivel para jugar");
+      alert("Campeón no tienes el nivel para jugar");
+
+      history.back();
     }
   })
   .catch((error) => {
