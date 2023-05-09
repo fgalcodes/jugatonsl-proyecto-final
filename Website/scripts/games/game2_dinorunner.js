@@ -84,7 +84,7 @@ function gameOver() {
   let scoreSpan = document.getElementById("score");
   scoreSpan.textContent = score;
   gameoverDiv.style.display = "block";
-  document.getElementById("game").style.filter = "invert(10%)";
+  canvas.style.filter = "invert(10%)";
 }
 
 // Set up key listeners for jumping
@@ -105,8 +105,8 @@ function reiniciarJuego() {
   enemyY = canvas.height - 46;
   gameover = false;
   document.getElementById("gameover").style.display = "none";
-  canvas.style.animation = "moveRoad 3s linear infinite";
-  document.getElementById("game").style.filter = "invert(0)";
+  canvas.style.animation = "moveBg 3s linear infinite";
+  canvas.style.filter = "invert(0)";
   bucleJuego();
 }
 
@@ -122,6 +122,6 @@ function bucleJuego() {
 
 function jugar() {
   document.getElementById("play").style.display = "none";
-  canvas.style.animation = "moveRoad 3s linear infinite";
+  canvas.style.animation = "moveBg 3s linear infinite";
   bucleJuego();
 }
