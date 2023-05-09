@@ -2,7 +2,6 @@ let nivel = localStorage.getItem("nivel");
 
 let gameid = document.getElementById("game-id").textContent
 
-
 switch(gameid)
 {
   case "1":
