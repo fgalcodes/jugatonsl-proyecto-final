@@ -131,6 +131,7 @@ class Enemigo {
       for (let i = 0; i < coches.length; i++) {
         if (colision(player, coches[i])) {
           gameover = true;
+          UpdateProfile();
           mostrarGameover();
           return;
         }
