@@ -19,6 +19,10 @@
   width: max-content;
 } */
 
+#verPerfilLink, #logOutButton{
+  display: none;
+}
+
 .doubleArticle a{
   transition: 300ms;
   width: 100%;

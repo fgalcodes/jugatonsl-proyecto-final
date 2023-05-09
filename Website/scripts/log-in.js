@@ -80,5 +80,6 @@ function storageProfile() {
 function popupBlock() {
   if (succesful) {
     document.getElementById("popup-block").style.display = "block";
+    document.querySelector("main").style.visibility = "hidden";
   }
 }

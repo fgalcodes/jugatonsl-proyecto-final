@@ -71,11 +71,14 @@ signupBtn.addEventListener("click", (e) => {
   fetch(apiUsuarios, post).then((response) => response.json());
   fetch(apiPerfiles, put).then((response) => response.json());
   succesful = true;
-  loginName.value = document.getElementById("user-name").value;
-  loginPass.value = document.getElementById("user-password").value;
-  logindata();
-  popupBlock();
+
+  popupRegisterSuccesfull();
 });
+
+function popupRegisterSuccesfull(){
+  document.getElementById("popup-block2").style.display = "block";
+  document.querySelector("main").style.visibility = "hidden";
+}
 
 // fetch(apiUsuarios)
 //     .then((response) => {

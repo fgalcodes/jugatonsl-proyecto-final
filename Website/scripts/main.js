@@ -22,14 +22,23 @@ if (localStorage.key("idPerfil")) {
 }
 
 if (usuarioConectado) {
-  verPerfil();
+  document.getElementById("verPerfilLink").style.display = "block";
+  document.getElementById("logOutButton").style.display = "block";
+  document.getElementById("loginButton").style.display = "none";
 }
 
-function verPerfil() {
-  console.log("logueado");
-  let accountlink = document.querySelectorAll(".navRight .lastlink");
-  for (let node of accountlink) {
-    node.innerText = "Ver Perfil";
-    node.href = "http://127.0.0.1:5500/Website/pages/profile.html";
-  }
+// function verPerfil() {
+//   console.log("logueado");
+//   let accountlink = document.querySelectorAll(".navRight .lastlink");
+//   for (let node of accountlink) {
+//     node.innerText = "Ver Perfil";
+//     node.href = "127.0.0.1/pages/profile.html";
+//   }
+// }
+
+function logout(){
+  document.getElementById("verPerfilLink").style.display = "none";
+  document.getElementById("logOutButton").style.display = "none";
+  localStorage.clear();
+  location.reload();
 }
