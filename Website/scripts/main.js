@@ -17,9 +17,11 @@ const infoProfileLocal = [username, nivel, puntuacion, intentos];
 // header.appendChild(newDiv);
 
 console.log(username);
+console.log(infoProfileLocal);
 
 let usuarioConectado = false;
-if (localStorage.getItem("idPerfil") != "") {
+
+if (infoProfileLocal[0] != null) {
   usuarioConectado = true;
 }
 
