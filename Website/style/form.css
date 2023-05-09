@@ -109,3 +109,7 @@
 #chk:checked ~ .signup label{
 	transform: scale(.6);
 }
+
+.signupBtn p{
+	margin: 5px;
+}
