@@ -1,9 +1,9 @@
-let username = localStorage.getItem("nombrePerfil");
-let nivel = localStorage.getItem("nivel");
-let puntuacion = localStorage.getItem("puntuacion");
-let intentos = localStorage.getItem("intentos");
+let localUsername = localStorage.getItem("nombrePerfil");
+let localNivel = localStorage.getItem("nivel");
+let localPuntuacion = localStorage.getItem("puntuacion");
+let localIntentos = localStorage.getItem("intentos");
 
-const infoProfileLocal = [username, nivel, puntuacion, intentos];
+const infoProfileLocal = [localUsername, localNivel, localPuntuacion, localIntentos];
 
 // let header = document.querySelector(".mainHeader")
 
@@ -16,10 +16,8 @@ const infoProfileLocal = [username, nivel, puntuacion, intentos];
 // newDiv.appendChild(name);
 // header.appendChild(newDiv);
 
-console.log(username);
-
 let usuarioConectado = false;
-if (localStorage.getItem("idPerfil") != "") {
+if (localStorage.key("idPerfil")) {
   usuarioConectado = true;
 }
 
@@ -32,6 +30,6 @@ function verPerfil() {
   let accountlink = document.querySelectorAll(".navRight .lastlink");
   for (let node of accountlink) {
     node.innerText = "Ver Perfil";
-    node.href = "/pages/profile.html";
+    node.href = "http://127.0.0.1:5500/Website/pages/profile.html";
   }
 }
