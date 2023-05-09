@@ -1,32 +1,32 @@
 .playbutton {
-    width: 302.47px;
-    height: 50px;
-    font-size: larger;
-    color: rgba(255, 255, 255, 0.726);
-    background-color: rgba(211, 144, 211, 0.418);
-    margin-top: 20px;
-    border-radius: 10px;
-    box-shadow: rgba(255, 255, 255, 0.274) 0 0 20px;
-    transition: 300ms;
-  }
-  
-  .playbutton:hover {
-    background-color: rgba(211, 144, 211, 0.575);
-  }
-  
-  .col-center{
-    position: relative;
-  }
-  
-  #gameover {
-    display: none;
-    position: absolute;
-    top: 30%;
-    left: 30%;
-    width: 400px;
-    height: 220px;
-    background-color: black;
-    text-align: center;
-    border-radius: 10px;
-    border: solid 1px rgba(255, 255, 255, 0.808);
-  }
+  width: 302.47px;
+  height: 50px;
+  font-size: larger;
+  color: rgba(255, 255, 255, 0.726);
+  background-color: rgba(211, 144, 211, 0.418);
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(255, 255, 255, 0.274) 0 0 20px;
+  transition: 300ms;
+}
+
+.playbutton:hover {
+  background-color: rgba(211, 144, 211, 0.575);
+}
+
+.col-center {
+  position: relative;
+}
+
+#gameover {
+  display: none;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  width: 400px;
+  height: 220px;
+  background-color: black;
+  text-align: center;
+  border-radius: 10px;
+  border: solid 1px rgba(255, 255, 255, 0.808);
+}

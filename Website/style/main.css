@@ -19,27 +19,30 @@
   width: max-content;
 } */
 
-#verPerfilLink, #logOutButton{
+#verPerfilLink,
+#logOutButton {
   display: none;
 }
 
-.doubleArticle a{
+.doubleArticle h2 {
   transition: 300ms;
-  width: 100%;
 }
 
-.doubleArticle a:hover{
-  transform: scale(105%);
+.doubleArticle a:hover h2 {
+  transform: scale(120%);
 }
 
 /* TAGS GENERALES */
-h1, h2, h4, h5{
+h1,
+h2,
+h4,
+h5 {
   margin: 0 50px 50px 50px;
   font-size: 50px;
-  color: #7F245D;
+  color: #7f245d;
   filter: brightness(150%);
   text-shadow: rgba(255, 255, 255, 0.329) 0 0 40px;
-  font-family: 'Play', sans-serif;
+  font-family: "Play", sans-serif;
 }
 
 body {
@@ -50,7 +53,7 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-.mainHeader{
+.mainHeader {
   padding-right: 10px;
 }
 
@@ -66,10 +69,9 @@ h3 {
 
 /* IDENTIFICADOR NIVEL */
 
-#game-id{
+#game-id {
   display: none;
 }
-
 
 /* HEADER */
 .mainHeader {
@@ -99,7 +101,7 @@ h3 {
   font-weight: bolder;
 }
 
-.lastlink:hover{
+.lastlink:hover {
   background-color: #190523;
   filter: brightness(120%);
 }
@@ -121,10 +123,9 @@ h3 {
   padding-top: 5px;
 }
 
-.logoHeader:hover{
+.logoHeader:hover {
   transform: scale(105%);
 }
-
 
 /* SECTIONS Y ARTICLES WEB GENERAL */
 .col-center {
@@ -168,28 +169,29 @@ h1 {
   font-size: 50px;
 }
 
-
 /* HOME ARTICLE */
 
-.doubleArticle article{
+.doubleArticle article {
   display: flex;
   flex-direction: column;
-  height: 610px !important;
+  height: fit-content;
 }
 
-.doubleArticle article > div{
+.doubleArticle article > div {
   display: flex;
-  margin-bottom: 30px;
   justify-content: space-between;
 }
 
-.doubleArticle article > div:last-child{
+.doubleArticle article > div:last-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.185);
+  padding-top: 15px;
+  margin-top: 15px;
   flex-direction: row-reverse;
 }
 
-.doubleArticle img{
+.doubleArticle img {
   width: 100%;
-  height: 290px;
+  height: 270px;
 }
 
 /* FOOTER */
@@ -203,36 +205,40 @@ h1 {
   padding: 0 10% 0 10%;
 }
 
-.mainFooter a{
-  color: #D89BC2;
+.mainFooter a {
+  color: #d89bc2;
 }
 
-.mainFooter a:hover{
+.mainFooter a:hover {
   color: aqua;
 }
 
-.mainFooter img{
+.mainFooter img {
   width: 20px;
   height: 20px;
   margin: 0 5px 0 5px;
   filter: contrast(0);
 }
 
-.mainFooter img:hover{
+.mainFooter img:hover {
   transform: scale(110%);
 }
 
 /* SCROLLBAR PERSONALIZADA */
 
-::-webkit-scrollbar{
-  background-color: #7F245D;
+::-webkit-scrollbar {
+  background-color: #0d0214;
   border-radius: 5px;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background-color: #2a1037;
   border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.548);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #411555;
 }
 
 @media only screen and (max-width: 900px) {
@@ -248,7 +254,7 @@ h1 {
     width: 100%;
   }
 
-  .doubleArticle article div{
+  .doubleArticle article div {
     flex-direction: column !important;
   }
 }

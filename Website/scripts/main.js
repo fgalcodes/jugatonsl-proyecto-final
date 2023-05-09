@@ -3,7 +3,12 @@ let localNivel = localStorage.getItem("nivel");
 let localPuntuacion = localStorage.getItem("puntuacion");
 let localIntentos = localStorage.getItem("intentos");
 
-const infoProfileLocal = [localUsername, localNivel, localPuntuacion, localIntentos];
+const infoProfileLocal = [
+  localUsername,
+  localNivel,
+  localPuntuacion,
+  localIntentos,
+];
 
 // let header = document.querySelector(".mainHeader")
 
@@ -36,7 +41,7 @@ if (usuarioConectado) {
 //   }
 // }
 
-function logout(){
+function logout() {
   document.getElementById("verPerfilLink").style.display = "none";
   document.getElementById("logOutButton").style.display = "none";
   localStorage.clear();

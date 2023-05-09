@@ -1,9 +1,8 @@
 let nivel = localStorage.getItem("nivel");
 
-let gameid = document.getElementById("game-id").textContent
+let gameid = document.getElementById("game-id").textContent;
 
-switch(gameid)
-{
+switch (gameid) {
   case "1":
     if (nivel == 1) {
       console.log("Campeón has entrado al nivel 1");
@@ -11,7 +10,7 @@ switch(gameid)
     } else {
       console.log("Campeón no tienes el nivel para jugar");
       alert("Campeón no tienes el nivel para jugar");
-    
+
       history.back();
     }
     break;
@@ -22,7 +21,7 @@ switch(gameid)
     } else {
       console.log("Campeón no tienes el nivel para jugar");
       alert("Campeón no tienes el nivel para jugar");
-    
+
       history.back();
     }
     break;
@@ -33,7 +32,7 @@ switch(gameid)
     } else {
       console.log("Campeón no tienes el nivel para jugar");
       alert("Campeón no tienes el nivel para jugar");
-    
+
       history.back();
     }
     break;
