@@ -4,17 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NIVEL 3 - Flappy Bird</title>
+    <script defer src="../../scripts/main.js"></script>
+    <script defer src="../../scripts/games/game3_flappybird.js"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Play:wght@700&display=swap");
-      </style>
-    <script defer src="../../scripts/levels.js"></script>
-    <script defer src="../../scripts/main.js"></script>
-    <script defer src="../../scripts/games/game1_safedriver.js"></script>
-    <link rel="stylesheet" href="../../style/games/game1_safedriver.css" />
-    <link rel="stylesheet" href="../../style/games/gameover.css" />
+    </style>
     <link rel="stylesheet" href="../../style/main.css" />
-    <title>NIVEL 1 - Safe Driver</title>
+    <link rel="stylesheet" href="../../style/games/game3_flappybird.css" />
+    <link rel="stylesheet" href="../../style/games/gameover.css" />
   </head>
   <body>
     <header>
@@ -34,10 +33,9 @@
       </nav>
     </header>
     <main>
-      <p id="game-id">1</p>
-      <h1>NIVEL 1 - Safe Driver</h1>
-      <section id="driver-game" class="col-center">
-        <canvas id="game" width="1100" height="600"></canvas><br />
+      <h1>NIVEL 3 - Flappy Bird</h1>
+      <section class="col-center">
+        <canvas id="game-canvas"></canvas>
         <button id="play" class="playbutton" onclick="jugar()">JUGAR</button>
         <div id="gameover">
           <h2>Has perdido!</h2>
