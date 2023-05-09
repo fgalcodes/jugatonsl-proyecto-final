@@ -113,3 +113,16 @@
 .signupBtn p{
 	margin: 5px;
 }
+
+#popup-block{
+	display: none;
+	position: absolute;
+	top: 40%;
+	left: 40%;
+	width: 400px;
+	background-color: #000;
+}
+
+#popup-block a{
+	font-size: 20px;
+}

@@ -70,6 +70,11 @@ signupBtn.addEventListener("click", (e) => {
 
   fetch(apiUsuarios, post).then((response) => response.json());
   fetch(apiPerfiles, put).then((response) => response.json());
+  succesful = true;
+  loginName.value = document.getElementById("user-name").value;
+  loginPass.value = document.getElementById("user-password").value;
+  logindata();
+  popupBlock();
 });
 
 // fetch(apiUsuarios)
