@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../style/main.css" />
     <link rel="stylesheet" href="../style/form.css" />
     <script defer src="../scripts/sign-up.js"></script>
+    <script defer src="../scripts/log-in.js"></script>
     <title>LogIn / SignIn</title>
   </head>
   <body>
@@ -43,12 +44,12 @@
 				</form>
 			</div>
       
-			<div class="login">
+			<div id="login" class="login">
         <form>
           <label class="loginlabel" for="chk" aria-hidden="true">Login</label>
-					<input type="text" name="txt" placeholder="Usuario" required="">
-					<input type="password" name="pswd" placeholder="Contraseña" required="">
-          <div class="signupBtn"><p>Inicia Sesión</p></div>
+					<input id="user-name-login" type="text" name="txt" placeholder="Usuario">
+					<input id="user-password-login" type="password" name="pswd" placeholder="Contraseña">
+          <div id="loginBtn" class="signupBtn"><p>Inicia Sesión</p></div>
 					<!-- <button>Login</button> -->
 				</form>
 			</div>
