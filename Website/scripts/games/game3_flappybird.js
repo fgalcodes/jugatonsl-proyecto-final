@@ -49,7 +49,7 @@ function updatePipe() {
 
   if (pipe.x + pipe.width < 0) {
     pipe.x = canvas.width;
-    score++;
+    score += 50;
     pipe.height = Math.round(Math.random() * (80 - 20) + 20);
   }
 
@@ -88,6 +88,14 @@ function gameLoop() {
 }
 
 function gameOver() {
+  if (score >= 50) {
+    console.log("Has ganado el juego, tu puntuacion es: " + score);
+    UpdateProfile(score);
+
+  } else {
+    console.log("Has perdido, tu puntuacion es: " + score);
+    UpdateIntentos();
+  }
   gameover = true;
   canvas.style.animation = "none";
   let gameoverDiv = document.getElementById("gameover");
@@ -116,6 +124,9 @@ function jugar() {
 }
 
 function reiniciarJuego() {
+  if (score >= 50) {
+    history.back();
+  } 
   gameover = false;
   score = 0;
   bird.x = 50;
