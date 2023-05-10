@@ -2,9 +2,11 @@ let localUsername = localStorage.getItem("nombrePerfil");
 let localNivel = localStorage.getItem("nivel");
 let localPuntuacion = localStorage.getItem("puntuacion");
 let localIntentos = localStorage.getItem("intentos");
+let localLocation = localStorage.getItem("ubicacion");
 
 const infoProfileLocal = [
   localUsername,
+  localLocation,
   localNivel,
   localPuntuacion,
   localIntentos,

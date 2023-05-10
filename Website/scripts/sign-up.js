@@ -70,13 +70,27 @@ signupBtn.addEventListener("click", (e) => {
   fetch(apiPerfiles, put).then((response) => response.json());
   succesful = true;
 
-
-  setTimeout(function(){
+  setTimeout(function () {
+    localStorage.clear();
     popupRegisterSuccesfull();
-}, 1900);
+  }, 1900);
 });
 
 function popupRegisterSuccesfull() {
   document.getElementById("popup-block2").style.display = "block";
   document.querySelector("main").style.visibility = "hidden";
 }
+
+function verMapa() {
+  window.open("mapa.html", "_blank", "width=800,height=600");
+}
+
+// let locationR = "";
+
+// window.addEventListener('load', function(){
+//   document.getElementById('profile-location').value = localStorage.getItem('locR');
+//  } );
+document.body.addEventListener("mouseover", function () {
+  document.getElementById("profile-location").value =
+    localStorage.getItem("currentLoc");
+});
