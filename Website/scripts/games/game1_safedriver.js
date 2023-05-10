@@ -27,7 +27,7 @@ class Enemigo {
       this.x = htmlCanvas.width;
       this.y = Math.random() * (htmlCanvas.height - this.alto);
       this.color = this.colores[Math.round(Math.random() * 3)];
-      score++;
+      score = score + 10;
 
       // this.aplicarFiltro(Math.floor(Math.random() * 50))
     }
@@ -104,6 +104,10 @@ function mostrarGameover() {
 
 // Función para el botón de reiniciar el juego
 function reiniciarJuego() {
+  if (score >= 50) {
+    history.back();
+  } 
+  
   gameover = false;
   score = 0;
   coches = [];
@@ -131,7 +135,14 @@ function actualizarJuego() {
     for (let i = 0; i < coches.length; i++) {
       if (colision(player, coches[i])) {
         gameover = true;
-        UpdateProfile();
+        if (score >= 50) {
+          alert("Has ganado el juego");
+          UpdateProfile(score);
+
+        } else {
+          alert("Has perdido el juego");
+          UpdateIntentos();
+        }
         mostrarGameover();
         return;
       }
