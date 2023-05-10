@@ -80,20 +80,3 @@ function popupRegisterSuccesfull() {
   document.getElementById("popup-block2").style.display = "block";
   document.querySelector("main").style.visibility = "hidden";
 }
-
-// fetch(apiUsuarios)
-//     .then((response) => {
-//       //handle response
-//       console.log(response);
-//       if (response.ok) {
-//         return response.json();
-//       }
-//     })
-//     .then((data) => {
-//       //handle data
-//       console.log(data);
-//     })
-//     .catch((error) => {
-//       //handle error
-//       console.log(error);
-//     });
