@@ -25,6 +25,7 @@ builder.Services.AddMemoryCache();
 builder.Services.AddSwaggerGen();
 
 // CORS
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("Nueva Politica", app =>
