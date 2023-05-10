@@ -1,5 +1,5 @@
-const apiPerfiles = "https://localhost:7041/api/Perfiles";
-const apiUsuarios = "https://localhost:7041/api/Usuarios";
+const apiPerfiles = "https://grupo1jugatonsl.azurewebsites.net/api/Perfiles";
+const apiUsuarios = "https://grupo1jugatonsl.azurewebsites.net/api/Usuarios";
 
 const signup = document.getElementById("signup");
 const signupBtn = document.getElementById("signupBtn");

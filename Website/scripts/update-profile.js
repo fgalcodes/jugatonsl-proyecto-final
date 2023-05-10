@@ -1,4 +1,4 @@
-const apiUpdatePerfilesIntentos = "https://localhost:7041/api/Perfiles";
+const apiUpdatePerfilesIntentos = "https://grupo1jugatonsl.azurewebsites.net/api/Perfiles";
 
 let acumuladorIntentos = parseInt(localStorage.getItem("intentos"));
 let acumuladorNiveles = parseInt(localStorage.getItem("nivel"));
