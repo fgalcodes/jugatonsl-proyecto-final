@@ -88,18 +88,19 @@ function gameLoop() {
 }
 
 function gameOver() {
-  if (score >= 50) {
-    console.log("Has ganado el juego, tu puntuacion es: " + score);
-    UpdateProfile(score);
-
-  } else {
-    console.log("Has perdido, tu puntuacion es: " + score);
-    UpdateIntentos();
-  }
+  UpdateIntentos();
   gameover = true;
-  canvas.style.animation = "none";
   let gameoverDiv = document.getElementById("gameover");
+  let gameoverTitle = document.querySelector("#gameover h2");
+  let gameoverBtn = document.getElementById("play-again");
   let scoreSpan = document.getElementById("score");
+  if (score >= 100){
+    gameoverTitle.innerText = "Puntos Superados!";
+    gameoverBtn.setAttribute('onclick', 'nextLevel()');
+    gameoverBtn.innerText = "Volver a niveles";
+    UpdateProfile(score);
+  }
+  canvas.style.animation = "none";
   scoreSpan.textContent = score;
   gameoverDiv.style.display = "block";
   canvas.style.filter = "invert(10%)";
@@ -124,9 +125,6 @@ function jugar() {
 }
 
 function reiniciarJuego() {
-  if (score >= 50) {
-    history.back();
-  } 
   gameover = false;
   score = 0;
   bird.x = 50;

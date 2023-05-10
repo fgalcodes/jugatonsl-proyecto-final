@@ -49,3 +49,7 @@ function logout() {
   localStorage.clear();
   location.reload();
 }
+
+function nextLevel(){
+  location.href = "../juego.html";
+}

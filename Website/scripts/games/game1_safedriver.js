@@ -94,20 +94,25 @@ function colision(objeto1, objeto2) {
 
 // Función para mostrar la "pantalla" de jugar de nuevo
 function mostrarGameover() {
-  htmlCanvas.style.animation = "none";
+  UpdateIntentos();
   let gameoverDiv = document.getElementById("gameover");
+  let gameoverTitle = document.querySelector("#gameover h2");
+  let gameoverBtn = document.getElementById("play-again");
   let scoreSpan = document.getElementById("score");
+  if (score >= 500){
+    gameoverTitle.innerText = "Puntos Superados!";
+    gameoverBtn.setAttribute('onclick', 'nextLevel()');
+    gameoverBtn.innerText = "Volver a niveles";
+    UpdateProfile(score);
+  }
+  htmlCanvas.style.animation = "none";
   scoreSpan.textContent = score;
   gameoverDiv.style.display = "block";
   document.getElementById("game").style.filter = "brightness(50%)";
 }
 
 // Función para el botón de reiniciar el juego
-function reiniciarJuego() {
-  if (score >= 50) {
-    history.back();
-  } 
-  
+function reiniciarJuego() {  
   gameover = false;
   score = 0;
   coches = [];
@@ -135,16 +140,6 @@ function actualizarJuego() {
     for (let i = 0; i < coches.length; i++) {
       if (colision(player, coches[i])) {
         gameover = true;
-        if (score >= 50) {
-          alert("Has ganado el juego");
-          UpdateProfile(score);
-
-        } else {
-          alert("Has perdido el juego");
-          UpdateIntentos();
-        }
-        mostrarGameover();
-        return;
       }
     }
 
