@@ -10,6 +10,7 @@ let dinoY = canvas.height - 46;
 let enemyX = canvas.width - 50;
 let enemyY = canvas.height - 46;
 let score = 0;
+let velocidad = 3;
 
 function draw() {
   // Clear the canvas
@@ -37,11 +38,12 @@ function jump() {
 }
 
 function moveEnemy() {
-  enemyX -= 3;
+  enemyX -= velocidad;
   if (enemyX < -50) {
+    velocidad = Math.round(Math.random() * (6 - 2) + 2);
     enemyX = canvas.width;
     enemyY = canvas.height - 46;
-    score++;
+    score += 20;
   }
 }
 
@@ -65,7 +67,7 @@ function checkCollision() {
 function update() {
   moveEnemy();
   checkCollision();
-
+  
   // Handle jumping
   if (isJumping) {
     jumpTimer++;
@@ -78,10 +80,17 @@ function update() {
 }
 
 function gameOver() {
+  let gameoverDiv = document.getElementById("gameover");
+  let gameoverTitle = document.querySelector("#gameover h2");
+  let gameoverBtn = document.getElementById("play-again");
+  let scoreSpan = document.getElementById("score");
+  if (score >= 500){
+    gameoverTitle.innerText = "Puntos Superados!";
+    gameoverBtn.setAttribute('onclick', 'nextLevel()');
+    gameoverBtn.innerText = "Volver a niveles";
+  }
   gameover = true;
   canvas.style.animation = "none";
-  let gameoverDiv = document.getElementById("gameover");
-  let scoreSpan = document.getElementById("score");
   scoreSpan.textContent = score;
   gameoverDiv.style.display = "block";
   canvas.style.filter = "invert(10%)";
@@ -107,7 +116,10 @@ function reiniciarJuego() {
   document.getElementById("gameover").style.display = "none";
   canvas.style.animation = "moveBg 3s linear infinite";
   canvas.style.filter = "invert(0)";
-  bucleJuego();
+}
+
+function nextLevel(){
+  location.href = "../juego.html";
 }
 
 // Start the game loop
