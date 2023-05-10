@@ -21,8 +21,10 @@ const infoProfileLocal = [
 // newDiv.appendChild(name);
 // header.appendChild(newDiv);
 
+
 let usuarioConectado = false;
 if (localStorage.key("idPerfil")) {
+
   usuarioConectado = true;
 }
 
