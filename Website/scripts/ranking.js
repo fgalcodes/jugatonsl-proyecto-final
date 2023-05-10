@@ -1,4 +1,4 @@
-const url = "https://localhost:7041/api/Perfiles";
+const url = "https://grupo1jugatonsl.azurewebsites.net/api/Perfiles";
 const tableSelector = document.getElementById("table-ranking");
 const records = document.getElementById("records-perfiles");
 

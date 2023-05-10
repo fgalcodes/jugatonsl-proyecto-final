@@ -26,7 +26,7 @@ function logindata() {
         usuariosLogin.push(usuario);
       }
       RecogerIdUsuario(usuariosLogin);
-      apiPerfil = "https://localhost:7041/api/Perfiles/" + usuarioId;
+      apiPerfil = "https://grupo1jugatonsl.azurewebsites.net/api/Perfiles/" + usuarioId;
       storageProfile();
       console.log("El id de usuario es: " + usuarioId);
       popupBlock();

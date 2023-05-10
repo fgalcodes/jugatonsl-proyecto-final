@@ -80,6 +80,7 @@ function update() {
 }
 
 function gameOver() {
+  UpdateIntentos();
   let gameoverDiv = document.getElementById("gameover");
   let gameoverTitle = document.querySelector("#gameover h2");
   let gameoverBtn = document.getElementById("play-again");
@@ -88,6 +89,7 @@ function gameOver() {
     gameoverTitle.innerText = "Puntos Superados!";
     gameoverBtn.setAttribute('onclick', 'nextLevel()');
     gameoverBtn.innerText = "Volver a niveles";
+    UpdateProfile(score);
   }
   gameover = true;
   canvas.style.animation = "none";
@@ -116,10 +118,6 @@ function reiniciarJuego() {
   document.getElementById("gameover").style.display = "none";
   canvas.style.animation = "moveBg 3s linear infinite";
   canvas.style.filter = "invert(0)";
-}
-
-function nextLevel(){
-  location.href = "../juego.html";
 }
 
 // Start the game loop
