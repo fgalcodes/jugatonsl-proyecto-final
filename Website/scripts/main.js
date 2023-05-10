@@ -1,9 +1,14 @@
-let username = localStorage.getItem("nombrePerfil");
-let nivel = localStorage.getItem("nivel");
-let puntuacion = localStorage.getItem("puntuacion");
-let intentos = localStorage.getItem("intentos");
+let localUsername = localStorage.getItem("nombrePerfil");
+let localNivel = localStorage.getItem("nivel");
+let localPuntuacion = localStorage.getItem("puntuacion");
+let localIntentos = localStorage.getItem("intentos");
 
-const infoProfileLocal = [username, nivel, puntuacion, intentos];
+const infoProfileLocal = [
+  localUsername,
+  localNivel,
+  localPuntuacion,
+  localIntentos,
+];
 
 // let header = document.querySelector(".mainHeader")
 
@@ -16,24 +21,31 @@ const infoProfileLocal = [username, nivel, puntuacion, intentos];
 // newDiv.appendChild(name);
 // header.appendChild(newDiv);
 
-console.log(username);
-console.log(infoProfileLocal);
 
 let usuarioConectado = false;
+if (localStorage.key("idPerfil")) {
 
-if (infoProfileLocal[0] != null) {
   usuarioConectado = true;
 }
 
 if (usuarioConectado) {
-  verPerfil();
+  document.getElementById("verPerfilLink").style.display = "block";
+  document.getElementById("logOutButton").style.display = "block";
+  document.getElementById("loginButton").style.display = "none";
 }
 
-function verPerfil() {
-  console.log("logueado");
-  let accountlink = document.querySelectorAll(".navRight .lastlink");
-  for (let node of accountlink) {
-    node.innerText = "Ver Perfil";
-    node.href = "/pages/profile.html";
-  }
+// function verPerfil() {
+//   console.log("logueado");
+//   let accountlink = document.querySelectorAll(".navRight .lastlink");
+//   for (let node of accountlink) {
+//     node.innerText = "Ver Perfil";
+//     node.href = "127.0.0.1/pages/profile.html";
+//   }
+// }
+
+function logout() {
+  document.getElementById("verPerfilLink").style.display = "none";
+  document.getElementById("logOutButton").style.display = "none";
+  localStorage.clear();
+  location.reload();
 }

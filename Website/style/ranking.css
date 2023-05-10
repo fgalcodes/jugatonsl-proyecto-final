@@ -1,17 +1,17 @@
-table {
+#table-ranking {
   border-collapse: collapse;
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  box-shadow: rgba(255, 255, 255, 0.144) 0 0 50px;
+  box-shadow: rgba(255, 255, 255, 0.068) 0 10px 0;
 }
 
-th{
-    border-radius: 20px;
+#table-ranking th {
+  border-radius: 20px;
 }
 
-th,
-td {
+#table-ranking th,
+#table-ranking td {
   padding: 10px;
   text-align: center;
   border: 1px rgba(255, 255, 255, 0.089) solid;
@@ -19,16 +19,18 @@ td {
   background-color: #684a7634;
 }
 
-thead {
+#table-ranking thead {
   background-color: #7e57c2;
   color: white;
+  position: sticky;
+  top: 0;
 }
 
 /* tbody tr:nth-child(even) {
   background-color: #e1bee7;
 } */
 
-.country img {
+#table-ranking .country img {
   width: 30px;
   height: 20px;
   object-fit: cover;
@@ -36,14 +38,14 @@ thead {
   box-shadow: 0 0 5px #7e57c2;
 }
 
-.score {
+#table-ranking .score {
   color: #9a75da;
   font-weight: bold;
   font-size: 1.2em;
 }
 
-.position {
-  background-color: #7e57c2;
+#table-ranking .position {
+  background-color: #3d2fb6;
   color: white;
   font-weight: bold;
   font-size: 1.2em;
@@ -51,20 +53,27 @@ thead {
   height: 40px;
 }
 
-.name {
+#table-ranking .name {
   font-size: 1.2em;
 }
 
+main div {
+  margin: auto;
+  width: 50%;
+  max-height: 660px;
+  overflow-y: scroll;
+}
+
 @media (max-width: 768px) {
-  table {
+  #table-ranking table {
     font-size: 0.8em;
   }
-  .position {
+  #table-ranking .position {
     width: 30px;
     height: 30px;
     font-size: 1em;
   }
-  .name {
+  #table-ranking .name {
     font-size: 1em;
   }
 }

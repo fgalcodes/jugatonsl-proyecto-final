@@ -10,41 +10,39 @@ let usuarios = [];
 let tempId;
 
 fetch(apiUsuarios)
-.then((response) => {
-  //handle response
-  console.log(response);
-  if (response.ok) {
-    return response.json();
-  }
-})
-.then((data) => {
-  //handle data
-  console.log(data);
-  for (const usuario of data) {
-    usuarios.push(usuario);
-  }
+  .then((response) => {
+    //handle response
+    console.log(response);
+    if (response.ok) {
+      return response.json();
+    }
+  })
+  .then((data) => {
+    //handle data
+    console.log(data);
+    for (const usuario of data) {
+      usuarios.push(usuario);
+    }
 
-  tempId = usuarios.pop().id;
-  console.log(tempId);
-
-})
-.catch((error) => {
-  //handle error
-  console.log(error);
-});
+    tempId = usuarios.pop().id;
+    console.log(tempId);
+  })
+  .catch((error) => {
+    //handle error
+    console.log(error);
+  });
 
 signupBtn.addEventListener("click", (e) => {
-
   let user = {
     usuario: document.getElementById("user-name").value,
-    password: document.getElementById("user-password").value
+    password: document.getElementById("user-password").value,
   };
 
   let profile = {
     id_usuario: tempId + 1,
     nombrePerfil: document.getElementById("profile-name").value,
     ubicacion: document.getElementById("profile-location").value,
-    nivel: 1
+    nivel: 1,
   };
 
   // Consumir API
@@ -70,7 +68,15 @@ signupBtn.addEventListener("click", (e) => {
 
   fetch(apiUsuarios, post).then((response) => response.json());
   fetch(apiPerfiles, put).then((response) => response.json());
+  succesful = true;
+
+  popupRegisterSuccesfull();
 });
+
+function popupRegisterSuccesfull() {
+  document.getElementById("popup-block2").style.display = "block";
+  document.querySelector("main").style.visibility = "hidden";
+}
 
 // fetch(apiUsuarios)
 //     .then((response) => {
