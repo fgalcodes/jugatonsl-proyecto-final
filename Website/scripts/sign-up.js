@@ -70,7 +70,10 @@ signupBtn.addEventListener("click", (e) => {
   fetch(apiPerfiles, put).then((response) => response.json());
   succesful = true;
 
-  popupRegisterSuccesfull();
+
+  setTimeout(function(){
+    popupRegisterSuccesfull();
+}, 1900);
 });
 
 function popupRegisterSuccesfull() {
