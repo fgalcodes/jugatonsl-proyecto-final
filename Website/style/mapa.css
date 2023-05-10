@@ -221,7 +221,12 @@
 
   /* MAPA Style*/
 
-  .map { 
+.map {
     /* width: 90%; */
-    height: 550px; 
+    height: 550px;
+}
+
+.mapBtn {
+    color: #000;
+    font-weight: 900;
 }
