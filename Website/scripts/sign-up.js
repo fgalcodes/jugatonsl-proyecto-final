@@ -27,7 +27,7 @@ fetch(apiUsuarios)
     console.log(usuarios);
     // usuarios.sort((a, b) => a.id - b.id);
 
-    tempId = usuarios.pop().id;
+    tempId = usuarios[usuarios.length - 1].id;
     console.log(tempId);
   })
   .catch((error) => {
@@ -35,7 +35,12 @@ fetch(apiUsuarios)
     console.log(error);
   });
 
+let clickedReg = false;
+
 signupBtn.addEventListener("click", (e) => {
+
+  clickedReg = true;
+
   let user = {
     usuario: document.getElementById("user-name").value,
     password: document.getElementById("user-password").value,
@@ -47,6 +52,16 @@ signupBtn.addEventListener("click", (e) => {
     ubicacion: document.getElementById("profile-location").value,
     nivel: 1,
   };
+  
+  if (CheckUserRegistered(user.usuario)) {
+    console.log("Usuario ya registrado");
+    return;
+  }
+
+  if(clickedReg) {
+    signupBtn.style.pointerEvents = "none";
+  }
+
 
   // Consumir API
 
@@ -128,4 +143,8 @@ async function signInProfile(put) {
     console.log(error);
   }
 
+}
+
+function CheckUserRegistered(user) {
+  return usuarios.find(userTarget => userTarget.usuario === user) !== undefined;
 }
