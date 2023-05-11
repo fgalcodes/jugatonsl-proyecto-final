@@ -1,8 +1,8 @@
-// Definicion de APIs
+// Deficionion APIs
 const apiPerfiles = "https://grupo1jugatonsl.azurewebsites.net/api/Perfiles";
 const apiUsuarios = "https://grupo1jugatonsl.azurewebsites.net/api/Usuarios";
 
-// Definicion de elementos en el DOM
+// Definicion elementos DOM
 const signup = document.getElementById("signup");
 const signupBtn = document.getElementById("signupBtn");
 
@@ -10,7 +10,7 @@ let usuarios = [];
 
 let tempId;
 
-// Metodo GET de API Usuarios
+// Metodo GET API Usuario
 fetch(apiUsuarios)
   .then((response) => {
     console.log(response);
@@ -24,14 +24,22 @@ fetch(apiUsuarios)
       usuarios.push(usuario);
     }
 
-    tempId = usuarios.pop().id;
+    console.log(usuarios);
+
+    tempId = usuarios[usuarios.length - 1].id;
     console.log(tempId);
   })
   .catch((error) => {
     console.log(error);
   });
 
+let clickedReg = false;
+
+// Al clickar registrar Usuario
 signupBtn.addEventListener("click", (e) => {
+
+  clickedReg = true;
+
   let user = {
     usuario: document.getElementById("user-name").value,
     password: document.getElementById("user-password").value,
@@ -43,6 +51,16 @@ signupBtn.addEventListener("click", (e) => {
     ubicacion: document.getElementById("profile-location").value,
     nivel: 1,
   };
+  
+  if (CheckUserRegistered(user.usuario)) {
+    console.log("Usuario ya registrado");
+    return;
+  }
+
+  if(clickedReg) {
+    signupBtn.style.pointerEvents = "none";
+  }
+
 
   // Consumir API
 
@@ -68,8 +86,6 @@ signupBtn.addEventListener("click", (e) => {
   signInUser(post);
   signInProfile(put);
 
-  // fetch(apiUsuarios, post).then((response) => response.json());
-  // fetch(apiPerfiles, put).then((response) => response.json());
   succesful = true;
 
   setTimeout(function () {
@@ -83,15 +99,18 @@ function popupRegisterSuccesfull() {
   document.querySelector("main").style.visibility = "hidden";
 }
 
+// PopUp mapa para registrar Ubicacion
 function verMapa() {
   window.open("mapa.html", "_blank", "width=800,height=600");
 }
 
+// Recuperar localizacion usuario
 document.body.addEventListener("mouseover", function () {
   document.getElementById("profile-location").value =
     localStorage.getItem("currentLoc");
 });
 
+// Registro Usuario
 async function signInUser(post) {
   try {
     const res = await fetch(apiUsuarios, post);
@@ -109,6 +128,7 @@ async function signInUser(post) {
 
 }
 
+// Creacion de Perfil
 async function signInProfile(put) {
   try {
     const res = await fetch(apiPerfiles, put);
@@ -124,4 +144,9 @@ async function signInProfile(put) {
     console.log(error);
   }
 
+}
+
+// Comprobación Usuario registrado
+function CheckUserRegistered(user) {
+  return usuarios.find(userTarget => userTarget.usuario === user) !== undefined;
 }
