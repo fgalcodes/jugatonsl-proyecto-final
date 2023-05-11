@@ -25,9 +25,9 @@ function logindata() {
       for (const usuario of data) {
         usuariosLogin.push(usuario);
       }
-      RecogerIdUsuario(usuariosLogin);
+      let correctCredentials = RecogerIdUsuario(usuariosLogin);
       apiPerfil = "https://grupo1jugatonsl.azurewebsites.net/api/Perfiles/" + usuarioId;
-      storageProfile();
+      if (correctCredentials) storageProfile();
       console.log("El id de usuario es: " + usuarioId);
       popupBlock();
     })
@@ -56,7 +56,10 @@ function RecogerIdUsuario(usuariosLogin) {
     console.log("Usuario o contraseña incorrectos");
     // loginName.value = "";
     loginPass.value = "";
+    return false;
   }
+  else return true;
+  
 }
 
 function storageProfile() {
