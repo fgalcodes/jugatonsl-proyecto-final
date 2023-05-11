@@ -3,7 +3,8 @@ let longUser;
 
 var marker;
 
-var map = L.map("map").setView([41.45361795384844, 2.1863831892761048], 14);
+// Deficion de mapa en posicion actual
+var map = L.map("map").setView([41.45361795384844, 2.1863831892761048], 4);
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
@@ -11,11 +12,10 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
-// var marker = L.marker([51.5, -0.09]).addTo(map);
-
+// Al hacer click en el mapa llama a getlocation()
 map.on("click", function (e) {
   if (marker) map.removeLayer(marker);
-  console.log(e.latlng); // e is an event object (MouseEvent in this case)
+  console.log(e.latlng); 
   marker = L.marker(e.latlng).addTo(map);
 
   latUser = e.latlng.lat;
@@ -23,7 +23,7 @@ map.on("click", function (e) {
   getlocation();
 });
 
-//   ------------------------------------------------------
+// Recoge las coordenadas del punto indicado
 const getlocation = () => {
   console.log(navigator.geolocation);
   if (navigator.geolocation) {
@@ -37,6 +37,7 @@ const showError = (error) => {
   console.log("Error");
 };
 
+// Conversion de coordenadas a Ciudad y persistencia en localStorage
 const showLocation = async (position) => {
   let lat = latUser;
   let long = longUser;
@@ -52,33 +53,3 @@ const showLocation = async (position) => {
   localStorage.setItem('currentLoc', data.address.city);
   window.close();
 };
-
-// Crear el mapa
-// var map = L.map('map').setView([51.505, -0.09], 13);
-
-// // Agregar el mapa base
-// L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-//   maxZoom: 18,
-// }).addTo(map);
-
-// // Variables para almacenar las coordenadas seleccionadas
-// var selectedLatLng = null;
-
-// // Mostrar el mapa
-// // document.getElementById('map').style.display = 'block';
-
-// // Habilitar el clic en el mapa para seleccionar ubicación
-// map.on('click', function(e) {
-//   // Obtener las coordenadas seleccionadas
-//   selectedLatLng = e.latlng;
-
-//   // Actualizar el campo de ubicación con las coordenadas
-//   localStorage.setItem('locR', selectedLatLng.lat + ', ' + selectedLatLng.lng);
-//   // setLocation();
-//   // Ocultar el mapa
-//   // document.getElementById('map').style.display = 'none';
-
-//   // Deshabilitar el clic en el mapa
-//   map.off('click');
-// });

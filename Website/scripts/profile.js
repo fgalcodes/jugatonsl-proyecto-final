@@ -1,3 +1,4 @@
+// Mostrar datos pagina perfil
 let infoList = document.querySelectorAll("#profileInfo li");
 let incrementList = 0;
 

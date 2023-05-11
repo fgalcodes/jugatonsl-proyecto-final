@@ -1,20 +1,22 @@
+// Declaracion de API Perfiles
 const url = "https://grupo1jugatonsl.azurewebsites.net/api/Perfiles";
+
+// Definición de elementos del DOM
 const tableSelector = document.getElementById("table-ranking");
 const records = document.getElementById("records-perfiles");
 
 let perfiles = [];
 let posicion = 1;
 
+// Metodo GET de la API Perfiles
 fetch(url)
   .then((response) => {
-    //handle response
     console.log(response);
     if (response.ok) {
       return response.json();
     }
   })
   .then((data) => {
-    //handle data
     console.log(data);
 
     for (const perfil of data) {
@@ -25,17 +27,23 @@ fetch(url)
     CrearPerfiles(perfiles, records);
   })
   .catch((error) => {
-    //handle error
     console.log(error);
   });
 
+// Ordenacion de perfiles por puntuacion
 function OrdenarPerfiles(perfiles, records) {
   perfiles.sort(function (a, b) {
-    return b.puntuacion - a.puntuacion;
+    if (a.puntuacion > b.puntuacion) {return -1;}
+    else if (a.puntuacion < b.puntuacion) {
+      return 1;
+    } else {
+      return a.intentos - b.intentos;
+    }
   });
   return perfiles;
 }
 
+// Creacion de elementos en el DOM, con datos de la API Perfiles
 function CrearPerfiles(perfiles, records) {
   for (const perfil of perfiles) {
     let tr = document.createElement("tr");

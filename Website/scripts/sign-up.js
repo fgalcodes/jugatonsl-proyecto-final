@@ -1,42 +1,41 @@
+// Deficionion APIs
 const apiPerfiles = "https://grupo1jugatonsl.azurewebsites.net/api/Perfiles";
 const apiUsuarios = "https://grupo1jugatonsl.azurewebsites.net/api/Usuarios";
 
+// Definicion elementos DOM
 const signup = document.getElementById("signup");
 const signupBtn = document.getElementById("signupBtn");
 
 let usuarios = [];
 
-// let profile;
 let tempId;
 
+// Metodo GET API Usuario
 fetch(apiUsuarios)
   .then((response) => {
-    //handle response
     console.log(response);
     if (response.ok) {
       return response.json();
     }
   })
   .then((data) => {
-    //handle data
     console.log(data);
     for (const usuario of data) {
       usuarios.push(usuario);
     }
 
     console.log(usuarios);
-    // usuarios.sort((a, b) => a.id - b.id);
 
     tempId = usuarios[usuarios.length - 1].id;
     console.log(tempId);
   })
   .catch((error) => {
-    //handle error
     console.log(error);
   });
 
 let clickedReg = false;
 
+// Al clickar registrar Usuario
 signupBtn.addEventListener("click", (e) => {
 
   clickedReg = true;
@@ -87,8 +86,6 @@ signupBtn.addEventListener("click", (e) => {
   signInUser(post);
   signInProfile(put);
 
-  // fetch(apiUsuarios, post).then((response) => response.json());
-  // fetch(apiPerfiles, put).then((response) => response.json());
   succesful = true;
 
   setTimeout(function () {
@@ -102,15 +99,18 @@ function popupRegisterSuccesfull() {
   document.querySelector("main").style.visibility = "hidden";
 }
 
+// PopUp mapa para registrar Ubicacion
 function verMapa() {
   window.open("mapa.html", "_blank", "width=800,height=600");
 }
 
+// Recuperar localizacion usuario
 document.body.addEventListener("mouseover", function () {
   document.getElementById("profile-location").value =
     localStorage.getItem("currentLoc");
 });
 
+// Registro Usuario
 async function signInUser(post) {
   try {
     const res = await fetch(apiUsuarios, post);
@@ -125,9 +125,9 @@ async function signInUser(post) {
   } catch (error) {
     console.log(error);
   }
-
 }
 
+// Creacion de Perfil
 async function signInProfile(put) {
   try {
     const res = await fetch(apiPerfiles, put);
@@ -142,9 +142,10 @@ async function signInProfile(put) {
   } catch (error) {
     console.log(error);
   }
-
 }
 
+
+// Comprobación Usuario registrado
 function CheckUserRegistered(user) {
   return usuarios.find(userTarget => userTarget.usuario === user) !== undefined;
 }
