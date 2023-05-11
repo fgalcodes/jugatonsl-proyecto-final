@@ -1,7 +1,10 @@
 // Comprobación de niveles
+if (!(localStorage.key("idPerfil"))) {
+  alert("Necesitas loguearte para jugar");
+  location.href = "log-sign-in.html";
+}
 
 let nivel = localStorage.getItem("nivel");
-
 let gameid = document.getElementById("game-id").textContent;
 
 if(nivel == gameid)

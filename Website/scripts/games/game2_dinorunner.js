@@ -1,3 +1,4 @@
+// Inicializar variables
 const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");
 let gameover = false;
@@ -12,19 +13,16 @@ let enemyY = canvas.height - 46;
 let score = 0;
 let velocidad = 3;
 
+// Dibujar jugador y enemigos
 function draw() {
-  // Clear the canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Draw the dino
   ctx.fillStyle = "green";
   ctx.fillRect(dinoX, dinoY, 10, 20);
 
-  // Draw the enemy
   ctx.fillStyle = "red";
   ctx.fillRect(enemyX, enemyY, 10, 20);
 
-  // Draw the score
   ctx.fillStyle = "white";
   ctx.font = "12px Arial";
   ctx.fillText("Score: " + score, 5, 15);
@@ -37,6 +35,7 @@ function jump() {
   }
 }
 
+// Cambia los valores para el movimiento
 function moveEnemy() {
   enemyX -= velocidad;
   if (enemyX < -50) {
@@ -47,6 +46,7 @@ function moveEnemy() {
   }
 }
 
+// Si colisiona lleva a gameover
 function checkCollision() {
   const dinoRight = dinoX + 10;
   const dinoBottom = dinoY + 20;
@@ -64,6 +64,7 @@ function checkCollision() {
   }
 }
 
+// Va moviendo al enemigo hasta la izquierda
 function update() {
   moveEnemy();
   checkCollision();
@@ -79,6 +80,7 @@ function update() {
   }
 }
 
+// Suma un intento y comprueba si ha superado el mínimo de puntos
 function gameOver() {
   UpdateIntentos();
   let gameoverDiv = document.getElementById("gameover");
@@ -89,6 +91,8 @@ function gameOver() {
     gameoverTitle.innerText = "Puntos Superados!";
     gameoverBtn.setAttribute('onclick', 'nextLevel()');
     gameoverBtn.innerText = "Volver a niveles";
+
+    // Actualiza el perfil
     UpdateProfile(score);
   }
   gameover = true;
@@ -98,13 +102,14 @@ function gameOver() {
   canvas.style.filter = "invert(10%)";
 }
 
-// Set up key listeners for jumping
+// Saltar con tecla espacio listener
 document.addEventListener("keydown", (event) => {
   if (event.code === "Space") {
     jump();
   }
 });
 
+// Si ha perdido reinicia, si no irá a los demás niveles
 function reiniciarJuego() {
   score = 0;
   isJumping = false;
@@ -120,7 +125,7 @@ function reiniciarJuego() {
   canvas.style.filter = "invert(0)";
 }
 
-// Start the game loop
+// Bucle del juego - canva
 function bucleJuego() {
   setInterval(() => {
     if (!gameover) {
@@ -130,6 +135,7 @@ function bucleJuego() {
   }, 1000 / 60);
 }
 
+// Empieza el juego al clicar iniciar
 function jugar() {
   document.getElementById("play").style.display = "none";
   canvas.style.animation = "moveBg 3s linear infinite";
