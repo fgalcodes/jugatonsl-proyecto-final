@@ -3,7 +3,7 @@ let longUser;
 
 var marker;
 
-var map = L.map("map").setView([51.505, -0.09], 13);
+var map = L.map("map").setView([41.45361795384844, 2.1863831892761048], 14);
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
