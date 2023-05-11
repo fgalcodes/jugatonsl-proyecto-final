@@ -1,3 +1,4 @@
+// Inicializar variables
 const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");
 let gameover = false;
@@ -23,11 +24,13 @@ const pipe = {
 
 let score = 0;
 
+// Dibuja al jugador
 function drawBird() {
   ctx.fillStyle = "#F56565";
   ctx.fillRect(bird.x, bird.y, bird.width, bird.height);
 }
 
+// Dibuja las tuberias
 function drawPipe() {
   ctx.fillStyle = "#1A202C";
   ctx.fillRect(pipe.x, 0, pipe.width, pipe.height);
@@ -39,11 +42,13 @@ function drawPipe() {
   );
 }
 
+// Cambia valores del jugador
 function updateBird() {
   bird.velocity += bird.gravity;
   bird.y += bird.velocity;
 }
 
+// Cambia valores de las tuberias
 function updatePipe() {
   pipe.x -= pipe.speed;
 
@@ -53,7 +58,7 @@ function updatePipe() {
     pipe.height = Math.round(Math.random() * (80 - 20) + 20);
   }
 
-  // Collision detection
+  // Comprueba colisión y cambia el valor
   if (
     bird.x < pipe.x + pipe.width &&
     bird.x + bird.width > pipe.x &&
@@ -63,12 +68,14 @@ function updatePipe() {
   }
 }
 
+// Mostrar puntos que va ganando
 function drawScore() {
   ctx.fillStyle = "#1A202C";
   ctx.font = "12px Arial";
   ctx.fillText(`Score: ${score}`, 10, 20);
 }
 
+// Bucle del juego - canvas
 function gameLoop() {
   if (!gameover) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -77,6 +84,7 @@ function gameLoop() {
     drawBird();
     drawScore();
 
+    // Si colisiona llama a gameOver
     if (!pipe.collision) {
       updateBird();
       updatePipe();
@@ -87,6 +95,7 @@ function gameLoop() {
   }
 }
 
+// Suma un intento y comprueba si ha superado el mínimo de puntos
 function gameOver() {
   UpdateIntentos();
   gameover = true;
@@ -98,6 +107,8 @@ function gameOver() {
     gameoverTitle.innerText = "Puntos Superados!";
     gameoverBtn.setAttribute('onclick', 'nextLevel()');
     gameoverBtn.innerText = "Volver a niveles";
+
+    // Actualiza el perfil
     UpdateProfile(score);
   }
   canvas.style.animation = "none";
@@ -110,6 +121,7 @@ function jump() {
   bird.velocity = bird.jump;
 }
 
+// Saltar con tecla espacio listener
 document.addEventListener("keydown", (e) => {
   if (e.code === "Space") {
     jump();
@@ -118,12 +130,7 @@ document.addEventListener("keydown", (e) => {
 
 document.addEventListener("click", jump);
 
-function jugar() {
-  document.getElementById("play").style.display = "none";
-  canvas.style.animation = "moveBg 3s linear infinite";
-  gameLoop();
-}
-
+// Si ha perdido reinicia, si no irá a los demás niveles
 function reiniciarJuego() {
   gameover = false;
   score = 0;
@@ -134,5 +141,12 @@ function reiniciarJuego() {
   document.getElementById("gameover").style.display = "none";
   canvas.style.animation = "moveBg 3s linear infinite";
   canvas.style.filter = "invert(0)";
+  gameLoop();
+}
+
+// Empieza el juego al clicar iniciar
+function jugar() {
+  document.getElementById("play").style.display = "none";
+  canvas.style.animation = "moveBg 3s linear infinite";
   gameLoop();
 }

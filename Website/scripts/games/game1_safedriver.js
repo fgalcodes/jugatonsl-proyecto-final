@@ -23,8 +23,6 @@ class Enemigo {
       this.y = Math.random() * (htmlCanvas.height - this.alto);
       this.color = this.colores[Math.round(Math.random() * 3)];
       score = score + 10;
-
-      // this.aplicarFiltro(Math.floor(Math.random() * 50))
     }
   }
 
@@ -62,20 +60,6 @@ htmlCanvas.addEventListener("mousemove", function (event) {
   let rect = htmlCanvas.getBoundingClientRect();
   player.y = event.clientY - rect.top - player.alto / 2;
 });
-
-// Event listener para moverlo con flechas
-/*htmlCanvas.addEventListener("keydown", function(event) {
-    let rect = canvas.getBoundingClientRect();
-    let canvasWidth = rect.width;
-    let playerHalfWidth = player.ancho / 2;
-    
-    if (event.key === "ArrowRight" && player.x + playerHalfWidth < canvasWidth) {
-      player.x += 10; 
-    }
-    else if (event.key === "ArrowLeft" && player.x - playerHalfWidth > 0) {
-      player.x -= 10; 
-    }
-  });*/
 
 // Función para comprobar colisiones entre dos objetos pasados
 function colision(objeto1, objeto2) {
