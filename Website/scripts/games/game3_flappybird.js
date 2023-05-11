@@ -94,7 +94,7 @@ function gameOver() {
   let gameoverTitle = document.querySelector("#gameover h2");
   let gameoverBtn = document.getElementById("play-again");
   let scoreSpan = document.getElementById("score");
-  if (score >= 100){
+  if (score >= 1000){
     gameoverTitle.innerText = "Puntos Superados!";
     gameoverBtn.setAttribute('onclick', 'nextLevel()');
     gameoverBtn.innerText = "Volver a niveles";

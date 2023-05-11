@@ -54,8 +54,8 @@ let inGameCanvas = htmlCanvas.getContext("2d");
 let player = {
   x: 10,
   y: htmlCanvas.height / 2,
-  ancho: 50,
-  alto: 35,
+  ancho: 90,
+  alto: 60,
   color: "green",
 };
 let coches = [];
@@ -140,6 +140,7 @@ function actualizarJuego() {
     for (let i = 0; i < coches.length; i++) {
       if (colision(player, coches[i])) {
         gameover = true;
+        mostrarGameover();
       }
     }
 
@@ -168,8 +169,8 @@ function crearCoches() {
   for (let i = 0; i < 5; i++) {
     let y = Math.random() * (htmlCanvas.height - 50);
     let x = htmlCanvas.width;
-    let ancho = 50;
-    let alto = 30;
+    let ancho = 140;
+    let alto = 80;
     let velocidad = Math.random() * 5 + 1;
     coches.push(new Enemigo(x, y, ancho, alto, velocidad));
   }
