@@ -125,7 +125,6 @@ async function signInUser(post) {
   } catch (error) {
     console.log(error);
   }
-
 }
 
 // Creacion de Perfil
@@ -143,7 +142,6 @@ async function signInProfile(put) {
   } catch (error) {
     console.log(error);
   }
-
 }
 
 // Comprobación Usuario registrado
