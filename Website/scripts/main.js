@@ -1,3 +1,5 @@
+// Recibir variables de localStorage
+
 let localUsername = localStorage.getItem("nombrePerfil");
 let localNivel = localStorage.getItem("nivel");
 let localPuntuacion = localStorage.getItem("puntuacion");
@@ -12,18 +14,7 @@ const infoProfileLocal = [
   localIntentos,
 ];
 
-// let header = document.querySelector(".mainHeader")
-
-// let newDiv = document.createElement("div");
-
-// let name = document.createElement("a");
-
-// name.textContent = username;
-
-// newDiv.appendChild(name);
-// header.appendChild(newDiv);
-
-
+// Persistencia del usuario en la web
 let usuarioConectado = false;
 if (localStorage.key("idPerfil")) {
 
@@ -35,15 +26,6 @@ if (usuarioConectado) {
   document.getElementById("logOutButton").style.display = "block";
   document.getElementById("loginButton").style.display = "none";
 }
-
-// function verPerfil() {
-//   console.log("logueado");
-//   let accountlink = document.querySelectorAll(".navRight .lastlink");
-//   for (let node of accountlink) {
-//     node.innerText = "Ver Perfil";
-//     node.href = "127.0.0.1/pages/profile.html";
-//   }
-// }
 
 function logout() {
   document.getElementById("verPerfilLink").style.display = "none";

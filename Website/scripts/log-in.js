@@ -1,43 +1,47 @@
-// let apiUsuariosLogin = "https://localhost:7041/api/Usuarios";
+// Inicializar variables
 let apiPerfil;
 let succesful = false;
 let usuarioId;
 let usuariosLogin = [];
 
+// Definir elementos del DOM
 const login = document.getElementById("login");
 
 const loginName = document.getElementById("user-name-login");
 const loginPass = document.getElementById("user-password-login");
 const loginBtn = document.getElementById("loginBtn");
 
+// Peticion GET a la API de Usuarios, y persistencia en localStorage
 function logindata() {
   fetch(apiUsuarios)
     .then((response) => {
-      //handle response
       console.log(response);
       if (response.ok) {
         return response.json();
       }
     })
     .then((data) => {
-      //handle data
       console.log(data);
       for (const usuario of data) {
         usuariosLogin.push(usuario);
       }
-      /*let correctCredentials =*/ RecogerIdUsuario(usuariosLogin);
+
+      RecogerIdUsuario(usuariosLogin);
+
       apiPerfil = "https://grupo1jugatonsl.azurewebsites.net/api/Perfiles/" + usuarioId;
-      /*if (correctCredentials)*/ storageProfile();
-      console.log("El id de usuario es: " + usuarioId);
+
+      storageProfile();
+      if(!(usuarioId == null)) {console.log("El id de usuario es: " + usuarioId);}
+      
+
       popupBlock();
     })
     .catch((error) => {
-      //handle error
       console.log(error);
     });
 }
 
-
+// Comprobar usuario existente y correcto
 function RecogerIdUsuario(usuariosLogin) {
   for (const usuario of usuariosLogin) {
     if (
@@ -54,14 +58,12 @@ function RecogerIdUsuario(usuariosLogin) {
 
   if (!succesful) {
     console.log("Usuario o contraseña incorrectos");
-    // loginName.value = "";
     loginPass.value = "";
-    // return false;
   }
-  // else return true;
   
 }
 
+// Guardar perfil en localStorage
 function storageProfile() {
   fetch(apiPerfil)
     .then((response) => {

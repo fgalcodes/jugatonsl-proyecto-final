@@ -1,37 +1,33 @@
+// Definicion de APIs
 const apiPerfiles = "https://grupo1jugatonsl.azurewebsites.net/api/Perfiles";
 const apiUsuarios = "https://grupo1jugatonsl.azurewebsites.net/api/Usuarios";
 
+// Definicion de elementos en el DOM
 const signup = document.getElementById("signup");
 const signupBtn = document.getElementById("signupBtn");
 
 let usuarios = [];
 
-// let profile;
 let tempId;
 
+// Metodo GET de API Usuarios
 fetch(apiUsuarios)
   .then((response) => {
-    //handle response
     console.log(response);
     if (response.ok) {
       return response.json();
     }
   })
   .then((data) => {
-    //handle data
     console.log(data);
     for (const usuario of data) {
       usuarios.push(usuario);
     }
 
-    console.log(usuarios);
-    // usuarios.sort((a, b) => a.id - b.id);
-
     tempId = usuarios.pop().id;
     console.log(tempId);
   })
   .catch((error) => {
-    //handle error
     console.log(error);
   });
 
