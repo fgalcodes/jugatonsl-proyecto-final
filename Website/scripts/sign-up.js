@@ -24,6 +24,9 @@ fetch(apiUsuarios)
       usuarios.push(usuario);
     }
 
+    console.log(usuarios);
+    // usuarios.sort((a, b) => a.id - b.id);
+
     tempId = usuarios.pop().id;
     console.log(tempId);
   })
@@ -66,8 +69,11 @@ signupBtn.addEventListener("click", (e) => {
   console.log(user);
   console.log(profile);
 
-  fetch(apiUsuarios, post).then((response) => response.json());
-  fetch(apiPerfiles, put).then((response) => response.json());
+  signInUser(post);
+  signInProfile(put);
+
+  // fetch(apiUsuarios, post).then((response) => response.json());
+  // fetch(apiPerfiles, put).then((response) => response.json());
   succesful = true;
 
   setTimeout(function () {
@@ -85,12 +91,41 @@ function verMapa() {
   window.open("mapa.html", "_blank", "width=800,height=600");
 }
 
-// let locationR = "";
-
-// window.addEventListener('load', function(){
-//   document.getElementById('profile-location').value = localStorage.getItem('locR');
-//  } );
 document.body.addEventListener("mouseover", function () {
   document.getElementById("profile-location").value =
     localStorage.getItem("currentLoc");
 });
+
+async function signInUser(post) {
+  try {
+    const res = await fetch(apiUsuarios, post);
+    const data = await res.json();
+
+    if (!res.ok) {
+      console.log("uwu");
+      return;
+    }
+    console.log(data);
+    
+  } catch (error) {
+    console.log(error);
+  }
+
+}
+
+async function signInProfile(put) {
+  try {
+    const res = await fetch(apiPerfiles, put);
+    const data = await res.json();
+
+    if (!res.ok) {
+      console.log("uwu");
+      return;
+    }
+    console.log(data);
+    
+  } catch (error) {
+    console.log(error);
+  }
+
+}
