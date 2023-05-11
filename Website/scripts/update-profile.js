@@ -1,5 +1,7 @@
+// Declaracion API Perfiles
 const apiUpdatePerfilesIntentos = "https://grupo1jugatonsl.azurewebsites.net/api/Perfiles";
 
+// Declaracion variables localStorage
 let acumuladorIntentos = parseInt(localStorage.getItem("intentos"));
 let acumuladorNiveles = parseInt(localStorage.getItem("nivel"));
 let acumuladorPuntos = parseInt(localStorage.getItem("puntuacion"));
@@ -13,7 +15,7 @@ let profileUpdate = {
   puntuacion: localStorage.getItem("puntuacion"),
 };
 
-
+// Actualizar Perfil, sumando Puntos, Intentos y Nivel mediante API
 function UpdateProfile(score) {
 
   acumuladorNiveles++;
@@ -41,24 +43,21 @@ function UpdateProfile(score) {
 
   fetch(apiUpdatePerfilesIntentos)
     .then((response) => {
-      //handle response
       console.log(response);
       if (response.ok) {
         return response.json();
       }
     })
     .then((data) => {
-      //handle data
       console.log(data);
     })
     .catch((error) => {
-      //handle error
       console.log(error);
     });
 }
 
+// Actualizar Intentos mediante API
 function UpdateIntentos() {
-  // profileUpdateIntentos.intentos = parseInt(profileUpdateIntentos.intentos) + 1;
 
   acumuladorIntentos++;
   localStorage.setItem("intentos", acumuladorIntentos);
@@ -80,18 +79,15 @@ function UpdateIntentos() {
 
   fetch(apiUpdatePerfilesIntentos)
     .then((response) => {
-      //handle response
       console.log(response);
       if (response.ok) {
         return response.json();
       }
     })
     .then((data) => {
-      //handle data
       console.log(data);
     })
     .catch((error) => {
-      //handle error
       console.log(error);
     });
 }

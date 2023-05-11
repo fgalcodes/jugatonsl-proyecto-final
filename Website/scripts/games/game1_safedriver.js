@@ -13,11 +13,6 @@ class Enemigo {
     this.velocidad = velocidad;
   }
 
-  // Intento de cambiar el color a las imágenes
-  aplicarFiltro(saturacion) {
-    inGameCanvas.filter = `saturate(${saturacion})`;
-  }
-
   // Mover los enemigos en el eje y hasta que lleguen al final
   mover() {
     this.x -= this.velocidad;
