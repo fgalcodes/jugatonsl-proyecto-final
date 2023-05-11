@@ -144,6 +144,7 @@ async function signInProfile(put) {
   }
 }
 
+
 // Comprobación Usuario registrado
 function CheckUserRegistered(user) {
   return usuarios.find(userTarget => userTarget.usuario === user) !== undefined;
