@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Play:wght@700&display=swap");
+  </style>
+  <script defer src="../../scripts/levels.js"></script>
+  <script defer src="../../scripts/main.js"></script>
+  <script defer src="../../scripts/update-profile.js"></script>
+  <script defer src="../../scripts/games/game1_safedriver.js"></script>
+  <link rel="stylesheet" href="../../style/games/game1_safedriver.css" />
+  <link rel="stylesheet" href="../../style/games/gameover.css" />
+  <link rel="stylesheet" href="../../style/main.css" />
+  <title>NIVEL 1 - Safe Driver</title>
+</head>
+
+<body>
+  <header>
+    <nav class="mainHeader">
+      <div class="linksNav">
+        <a class="nolink" href="../../index.html"><img class="logoHeader" src="../../src/LogoSL.png" alt="" /></a>
+        <a href="../../index.html">Home</a>
+        <a href="../juego.html">Jugar</a>
+        <a href="../ranking.html">Ranking</a>
+      </div>
+      <div class="navRight">
+        <a id="verPerfilLink" href="../profile.html">Ver Perfil</a>
+        <a id="logOutButton" class="lastlink" href="../../index.html" onclick="logout()">Cerrar Sesión</a>
+        <a id="loginButton" class="lastlink" href="../log-sign-in.html">Login / SignUp</a>
+        <!-- <button></button> -->
+      </div>
+    </nav>
+  </header>
+  <main>
+    <p id="game-id">1</p>
+    <h1>NIVEL 1 - Safe Driver</h1>
+    <section id="driver-game" class="col-center">
+      <p>Objetivo: 500 puntos</p>
+      <canvas id="game" width="1100" height="600"></canvas><br />
+      <button id="play" class="playbutton" onclick="jugar()">JUGAR</button>
+      <div id="gameover">
+        <h2>Has perdido!</h2>
+        <p>Tu puntuación es <span id="score"></span>.</p>
+        <button id="play-again" class="playbutton" onclick="reiniciarJuego()">
+          Jugar de nuevo
+        </button>
+      </div>
+    </section>
+  </main>
+  <footer class="mainFooter">
+    <div>
+      <a target="_blank" href="https://www.instagram.com/itecbcn/?hl=es"><img src="../../src/social/instagram.png"
+          alt=""></a>
+      <a target="_blank" href="https://es-es.facebook.com/itecbcn/"><img src="../../src/social/facebook.png" alt=""></a>
+      <a target="_blank" href="https://www.youtube.com/@secretariainstituttecnolog7490"><img
+          src="../../src/social/youtube.png" alt=""></a>
+      <a target="_blank" href="https://twitter.com/itecbcn?lang=es"><img src="../../src/social/twitter.png" alt=""></a>
+      <a target="_blank"
+        href="https://es.linkedin.com/company/itecbcn?original_referer=https%3A%2F%2Fwww.google.com%2F"><img
+          src="../../src/social/linkedin.png" alt=""></a>
+    </div>
+    <address>
+      <ul>
+        <li>Dirección: Aiguablava, 121, Barcelona</li>
+        <li><a target="_blank"
+            href="https://www.google.com/url?q=https%3A%2F%2Fwww.itb.cat&sa=D&sntz=1&usg=AOvVaw2s6O9skz-nT9ZdCGkADY2J">ITB
+            WEBSITE</a></li>
+      </ul>
+    </address>
+  </footer>
+</body>
+
+</html>

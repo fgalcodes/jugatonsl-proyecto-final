@@ -15,7 +15,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSingleton(builder.Services.AddDbContext<PosgreSQLConfig>(options =>
     options.UseSqlServer("WebApiDatabase")));
 
+builder.Services.AddScoped<PerfilesRepository>();
 builder.Services.AddScoped<UsuariosRepository>();
+builder.Services.AddScoped<NivelesRepository>();
 builder.Services.AddControllers();
 
 builder.Services.AddMemoryCache();
@@ -23,6 +25,7 @@ builder.Services.AddMemoryCache();
 builder.Services.AddSwaggerGen();
 
 // CORS
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("Nueva Politica", app =>

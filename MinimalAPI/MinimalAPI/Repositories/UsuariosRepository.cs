@@ -1,9 +1,11 @@
 ﻿using Dapper;
 using MinimalAPI.Models;
 using Npgsql;
+using System.Text.Json.Nodes;
 
 namespace MinimalAPI.Repositories
 {
+    // Repositorio de Sentencias SQL de la tabla Usuario.
     public class UsuariosRepository
     {
         private PosgreSQLConfig connectionString;
@@ -12,10 +14,13 @@ namespace MinimalAPI.Repositories
             this.connectionString = connectionString;
         }
 
+        // Método de conexión predeterminado.
         protected NpgsqlConnection dbConnection()
         {
             return new NpgsqlConnection(connectionString.ConnectionString);
         }
+
+        // Método para recuperar todos los usuarios de la tabla.
         public async Task<IEnumerable<Usuario>> GetAllUsuarios()
         {
             var db = dbConnection();
@@ -28,6 +33,8 @@ namespace MinimalAPI.Repositories
 
             return await db.QueryAsync<Usuario>(sql, new { });
         }
+
+        // Método para recuperar un usuario concreto mediante una ID parametrizada.
         public async Task<Usuario> GetUsuario(int id)
         {
             var db = dbConnection();
@@ -40,7 +47,9 @@ namespace MinimalAPI.Repositories
 
             return await db.QueryFirstOrDefaultAsync<Usuario>(sql, new { Id = id });
         }
-        public async Task<bool> InsertUsuario(Usuario usuario)
+
+        // Método para insertar un usuario mediante un objeto parametrizado.
+        public async Task<bool> InsertUsuario(UsuarioSinId usuario)
         {
             var db = dbConnection();
 
@@ -49,10 +58,11 @@ namespace MinimalAPI.Repositories
                         VALUES (@usuario, @password)
                         ";
 
-            var result = await db.ExecuteAsync(sql, new { usuario.usuario, usuario.password});
+            var result = await db.ExecuteAsync(sql, new { usuario.usuario, usuario.password });
             return result > 0;
         }
 
+        // Método para actualizar un usuario mediante un objeto parametrizado.
         public async Task<bool> UpdateUsuario(Usuario usuario)
         {
             var db = dbConnection();
@@ -67,6 +77,8 @@ namespace MinimalAPI.Repositories
             var result = await db.ExecuteAsync(sql, new { usuario.usuario, usuario.password, usuario.id });
             return result > 0;
         }
+
+        // Método para eliminar un usuario mediante un objeto parametrizado.
         public async Task<bool> DeleteUsuario(Usuario usuario)
         {
             var db = dbConnection();

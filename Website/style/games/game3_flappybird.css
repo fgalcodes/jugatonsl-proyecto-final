@@ -1,0 +1,24 @@
+#game-canvas {
+  background-color: #d3a1e275;
+  background-image: url("../../src/flappy_bg.png");
+  /* background-position: bottom; */
+  background-size: cover;
+  background-repeat: repeat-x;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  border-radius: 10px;
+  animation: none;
+}
+
+@keyframes moveBg {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
